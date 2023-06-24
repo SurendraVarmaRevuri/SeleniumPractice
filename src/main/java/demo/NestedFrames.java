@@ -30,8 +30,11 @@ public class NestedFrames {
     public  void testCase05(){
         System.out.println("Start Test case: testCase05");
         driver.get("https://the-internet.herokuapp.com/nested_frames");
+        //Switch into the top frame
         driver.switchTo().frame("frame-top");
+        // switch into the left frame
         driver.switchTo().frame("frame-left");
+        //locate the text inside the left and get the text
         String textInsideLeftFrame = driver.findElement(By.xpath("//body[contains(text(),'LEFT')]")).getText();
         System.out.println("Text Inside the Left Frame : "+ textInsideLeftFrame);
 
@@ -39,7 +42,8 @@ public class NestedFrames {
         driver.switchTo().parentFrame();
         //Switch to Middle Frame
         driver.switchTo().frame("frame-middle");
-        String textInsideMidFrame = driver.findElement(By.xpath("//body[contains(text(),'MIDDLE')]")).getText();
+        //locate the text inside the middle and get the text
+        String textInsideMidFrame = driver.findElement(By.xpath("//div[text()='MIDDLE']")).getText();
         System.out.println("Text Inside the Middle Frame : "+ textInsideMidFrame);
 
         //Switch to Parent frame
@@ -54,15 +58,11 @@ public class NestedFrames {
 
         //Switch to Bottom frame
         driver.switchTo().frame("frame-bottom");
-        String textInsideBottomtFrame = driver.findElement(By.xpath("//body[contains(text(),'BOTTOM')]")).getText();
-        System.out.println("Text Inside the Bottom Frame : "+ textInsideBottomtFrame);
+        String textInsideBottomFrame = driver.findElement(By.xpath("//body[contains(text(),'BOTTOM')]")).getText();
+        System.out.println("Text Inside the Bottom Frame : "+ textInsideBottomFrame);
+
         //Switch back to default content
         driver.switchTo().defaultContent();
-
-
-
-
-
 
     }
 }

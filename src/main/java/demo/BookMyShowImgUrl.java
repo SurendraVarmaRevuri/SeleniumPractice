@@ -2,8 +2,11 @@ package demo;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -32,16 +35,22 @@ public class BookMyShowImgUrl {
         driver.findElement(By.xpath("(//div[contains(@class,'hxrBcw')])[1]")).click();
         Thread.sleep(2000);
         List<WebElement> recommendedMvs = driver.findElements(By.xpath("(//div[contains(@class,'hCzkOF')])[1]//img"));
-       for(WebElement movie : recommendedMvs){
+
+        System.out.println(recommendedMvs.size());
+               for(WebElement movie : recommendedMvs){
 
            String imgUrl = movie.getAttribute("src");
            System.out.println("Recommended Movie Image URL: " + imgUrl);
-
        }
-       Thread.sleep(2000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView();", wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Uthami']"))));
 
-       List<WebElement> primerMvs = driver.findElements(By.xpath("(//div[contains(@class,'iVNURo')])[3]//img"));
-       System.out.println(primerMvs.size());
+
+       List<WebElement> premiumMvs = driver.findElements(By.xpath("//div[contains(@class, 'hgSytF')]/div/a"));
+       System.out.println(premiumMvs.size());
+
+
 
 
     }
