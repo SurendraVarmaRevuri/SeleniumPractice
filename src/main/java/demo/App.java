@@ -42,13 +42,14 @@ public class App {
 //        imdb.testCase06();
 
         //===================================================================
-//        WindowHandling windHan = new WindowHandling();
-//        windHan.testCase07();
+        WindowHandling windHan = new WindowHandling();
+        windHan.testCase07();
+//        windHan.endTest();
 
         //==================================================================
 
-        LinkedInImgPost linkedInPost = new LinkedInImgPost();
-        linkedInPost.testCase09();
+//        LinkedInImgPost linkedInPost = new LinkedInImgPost();
+//        linkedInPost.testCase09();
 
 
         //tests.testCase01();

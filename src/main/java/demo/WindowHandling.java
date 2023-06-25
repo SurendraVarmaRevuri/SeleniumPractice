@@ -48,15 +48,15 @@ public class WindowHandling {
         Set<String> childWinds = driver.getWindowHandles();
 
         for(String eachWind : childWinds){
-           if(!eachWind.equals(originalWindow)){
+           if(!eachWind.equals(originalWindow)) {
                driver.switchTo().window(eachWind);
 
                //Get the URl
                String URL = driver.getCurrentUrl();
-               System.out.println("Current Page URL : "+ URL);
+               System.out.println("Current Page URL : " + URL);
 
                //Print Title
-               System.out.println("Title of the page  : " +driver.getTitle());
+               System.out.println("Title of the page  : " + driver.getTitle());
 
 
                // Take a screenshot
@@ -72,8 +72,10 @@ public class WindowHandling {
                } catch (Exception e) {
                    System.out.println("Failed to save screenshot: " + e.getMessage());
                }
+               driver.close();
 
            }
+
            driver.switchTo().window(originalWindow);
 
            }
