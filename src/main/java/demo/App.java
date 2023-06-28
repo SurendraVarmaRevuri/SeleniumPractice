@@ -44,7 +44,7 @@ public class App {
         //===================================================================
         WindowHandling windHan = new WindowHandling();
         windHan.testCase07();
-//        windHan.endTest();
+        windHan.endTest();
 
         //==================================================================
 

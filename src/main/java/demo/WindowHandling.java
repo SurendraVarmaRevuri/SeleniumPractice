@@ -59,19 +59,14 @@ public class WindowHandling {
                System.out.println("Title of the page  : " + driver.getTitle());
 
 
-               // Take a screenshot
                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-               // Define the destination path for the screenshot
-               String destinationPath = "C:\\Users\\varma\\IdeaProjects\\selenium_starter\\src\\main\\java\\demo\\ScreenShots";
-
+               File destinationFile = new File("screenshots/"+"screenshot.png");
                try {
-                   // Copy the screenshot file to the destination path
-                   FileUtils.copyFile(screenshotFile, new File(destinationPath));
-                   System.out.println("Screenshot saved to: " + destinationPath);
-               } catch (Exception e) {
-                   System.out.println("Failed to save screenshot: " + e.getMessage());
+                   FileUtils.copyFile(screenshotFile, destinationFile);
+               } catch (IOException e) {
+                   e.printStackTrace();
                }
+
                driver.close();
 
            }
